@@ -4,7 +4,7 @@ import base64
 
 import mediapipe as mp
 
-BUFF_SIZE = 16384 
+BUFF_SIZE = 65536
 UDP_IP_ADDRESS = '192.168.178.171'
 UDP_PORT_NO = 6789
 
@@ -37,7 +37,8 @@ while True:
         cv2.imshow("recv video", frame)
         key = cv2.waitKey(1) & 0xFF
 
-    except:
+    except Exception as err:
+        print(err)
         clientSock.close()
         cv2.destroyAllWindows()
         break
