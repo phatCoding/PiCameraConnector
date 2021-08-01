@@ -1,7 +1,6 @@
 import cv2 , socket
 import numpy as np
 import base64
-
 import mediapipe as mp
 
 BUFF_SIZE = 65536
@@ -18,6 +17,7 @@ clientSock.sendto(bytearray, (UDP_IP_ADDRESS, UDP_PORT_NO))
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
 mpDraw = mp.solutions.drawing_utils
+
 
 while True:
 
@@ -47,3 +47,4 @@ while True:
         clientSock.close()
         cv2.destroyAllWindows()
         break
+
